@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 창 마우스 따라가는 굳건이 눈</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    body{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .mouse-move{
+        width: 40%;
+    }
+    .mouse-move img{
+        --width: 100%;
+        width: var(--width);
+        position: relative;
+        z-index: 1;
+    }
+    .mouse-move::before{
+        --size: calc(var(--width) / 2);
+        content: "";
+        position: absolute;
+        z-index: 2;
+        top: 80px;
+        left: 120px; /* calc(var(--size) * 1); */
+        border-radius: 4px;
+        width: 12px;
+        height: 12px;
+        background-color: white;
+    }
+    .mouse-move::after{
+        --size: calc(var(--width) / 2);
+        content: "";
+        position: absolute;
+        z-index: 2;
+        top: 80px;
+        left: 90px; /* calc(var(--size) * 1); */
+        border-radius: 4px;
+        width: 12px;
+        height: 12px;
+        background-color: white;
+    }
+
+    #InputForm{
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+    }
+
+    .content-box{
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        justify-content: center;
+        align-items:center;
+        width: 70%;
+        height: 70%;
+        padding: 15px;
+        border: 2px solid black;
+    }
+    .content-box input{
+        font-family: 'NanumSquare', sans-serif;
+        font-weight: 400;
+        width: 80%;
+        height: 25px;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    #eye1{
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        left: 93px;
+        top: 75px;
+        z-index: 3;
+    }
+    #eye1 img{
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+    }
+
+    #eye2{
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        left: 120px;
+        top: 75px;
+        z-index: 3;
+    }
+    #eye2 img{
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+    }
+</style>
+<!-- 눈알 위치 특정 디스플레이 크기에서만 작동. (555 X 311) 
+ 반응형으로 추후 수정해야 함-->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css">
+<body>
+    <div class="mouse-move">
+        <img src="https://i.namu.wiki/i/xcex-EOVc39h0pZIspdeXaH2F8Xvrywp8jnVbnQ-ZNcHgY98Fd2fogxW12BQm6tXZeSwyuJkESSCzV59I8DbfQ.webp" alt="">
+    </div>
+    <div id="eye1">
+        <img src="https://images.vexels.com/media/users/3/139158/isolated/lists/c862a3c9ef219140fb365301f9ebbd50-black-dot.png" alt="">
+    </div>
+    <div id="eye2">
+        <img src="https://images.vexels.com/media/users/3/139158/isolated/lists/c862a3c9ef219140fb365301f9ebbd50-black-dot.png" alt="">
+    </div>
+    <div id="InputForm">
+        <div class="content-box">
+            <h1>로그인</h1>
+            <br>
+            <p>이메일</p>
+            <input type="email" name="" id="">
+            <br>
+            <p>비밀번호</p>
+            <input type="password" name="" id="">
+            <br>
+            <input type="submit" value="확인">
+        </div>
+    </div>
+    <script>
+        const inputform = document.getElementById('InputForm');
+        const mouseOverEventHandler = (e) => {
+            let mouseX = (e.pageX + 2500) / 30; // document의 x좌표값
+            let mouseY = (e.pageY + 2100) / 30; // document의 y좌표값
+
+            let cursor1 = document.getElementById('eye1');
+            cursor1.style.left = mouseX + 'px';
+            cursor1.style.top = mouseY + 'px';
+            let cursor2 = document.getElementById('eye2');
+            cursor2.style.left = mouseX + 28 +'px';
+            cursor2.style.top = mouseY + 'px';
+        };
+        inputform.addEventListener('mouseover', (event) => {
+            document.addEventListener('mousemove', mouseOverEventHandler)
+        });
+        inputform.addEventListener('mouseout', (event) => {
+            document.removeEventListener('mousemove', mouseOverEventHandler);
+            let cursor1 = document.getElementById('eye1');
+            cursor1.style.left = 93 + 'px';
+            cursor1.style.top = 75 + 'px';
+            let cursor2 = document.getElementById('eye2');
+            cursor2.style.left = 120 + 'px';
+            cursor2.style.top = 75 + 'px';
+        });
+    </script>
+</body>
+</html>
