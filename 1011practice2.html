@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #img{
+            width : 100px;
+            height : 100px;
+        }
+    </style>
+</head>
+<!-- 룰렛 콘솔로그에선 문제 없는데, 졸작때와 같이 이미지가 렉으로 인해 안 돌아가는 듯 함. 방식 변경을 고려해보아야 할듯. GPT 찬스 써야될듯 -->
+<body>
+    <img id="img" src="https://png.pngtree.com/png-clipart/20210308/original/pngtree-free-fruit-hand-drawn-pear-png-image_5751102.jpg" />
+    <button onclick="rulletStart()">toggle</button>
+</body>
+</html>
+<script>
+    let randomValue;
+
+    function getRandom(min, max)
+    {
+	    return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    
+    function imageChanger()
+    {
+        console.log('이미지 체인저 실행, 현재 랜덤밸류 값은' + randomValue);
+        //randomValue = getRandom(1,10);
+        if(randomValue == 1)
+        {
+            document.getElementById("img").src = "https://png.pngtree.com/png-vector/20240904/ourmid/pngtree-red-turnip-vegetable-clipart-illustration-isolated-on-black-background-png-image_13749669.png";
+            console.log('이미지 체인저 1번');
+        }
+        if(randomValue == 2)
+        {
+            document.getElementById("img").src = "https://png.pngtree.com/png-clipart/20210308/original/pngtree-free-fruit-hand-drawn-pear-png-image_5751102.jpg";
+            console.log('이미지 체인저 2번');
+        }
+        if(randomValue == 3)
+        {
+            document.getElementById("img").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQwULNjW5WnxHgHCYeBcpOM57utwHgwQUyWw&s";
+            console.log('이미지 체인저 3번');
+        }
+        if(randomValue == 4)
+        {
+            document.getElementById("img").src = "https://thumb.ac-illust.com/25/2534ee2675486c9d03242c2f22d1db4f_t.jpeg";
+            console.log('이미지 체인저 4번');
+        }
+        if(randomValue == 5)
+        {
+            document.getElementById("img").src = "https://png.pngtree.com/png-clipart/20210311/original/pngtree-carrot-png-image_6001476.png";
+            console.log('이미지 체인저 5번');
+        }
+    }
+
+    function sleep(sec) 
+    {
+        let start = Date.now(), now = start;
+        while (now - start < sec * 1000) 
+        {
+            now = Date.now();
+        }
+    }
+
+    function rulletStart()
+    {
+        let rulletValue = getRandom(1, 10);
+        let rulletCount = 0;
+        let rulletLastNumber = 5;
+        for(let i = 1; i <= rulletLastNumber; i++){
+            console.log('for문 실행' + i + '번 중');
+            randomValue = i;
+            imageChanger();
+            sleep(0.5); 
+            if(i == rulletLastNumber)
+            {
+                rulletCount = rulletCount + 1;
+                i = 1;
+            }
+            
+            if(rulletCount > 5)
+            {
+                break;
+            }
+        }
+    }
+</script>
