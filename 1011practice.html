@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 창 마우스 따라가는 굳건이 눈</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    body{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        background-image: 
+        linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)),
+        url("https://img.bemil.chosun.com/nbrd/data/10044/upfile/201008/20100819193837.jpg");
+        background-size: 100% 85%;
+        background-repeat: no-repeat;
+    }
+
+    .mouse-move{
+        width: 40%;
+    }
+    .mouse-move .move-char{
+        width: 120px;
+        height: 150px;
+        display: block;
+        position: absolute;
+        border-radius: 400px;
+        z-index: 1;
+        top: 60px;
+        left: 80px;
+        background-color: rgb(247, 218, 158);
+    }
+    .mouse-move::before{
+        content: "";
+        position: absolute;
+        z-index: 2;
+        top: 65px; /* calc(7vmin + 5vh); */
+        left: 135px; /* calc(13vw + 18px); */
+        border-radius: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: white;
+    }
+    .mouse-move::after{
+        content: "";
+        position: absolute;
+        z-index: 2;
+        top: 65px;
+        left: 85px; /* calc(var(--size) * 1); */
+        border-radius: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: white;
+    }
+
+    #InputForm{
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items:center;
+    }
+
+    .content-box{
+        display: flex;
+        background-image: linear-gradient(to bottom, rgba(255, 255, 0, 0.3), rgba(0, 0, 255, 0.3));
+        backdrop-filter: blur(5px);
+        flex-direction: column;
+        margin: 0 auto;
+        justify-content: center;
+        align-items:center;
+        width: 70%;
+        height: 70%;
+        padding: 15px;
+        border: 2px solid black;
+    }
+    .content-box input{
+        font-family: 'NanumSquare', sans-serif;
+        font-weight: 400;
+        width: 80%;
+        height: 25px;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    #eye1{
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        left: 105px;
+        top: 100px;
+        z-index: 3;
+    }
+    #eye1 img{
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+    }
+
+    #eye2{
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        left: 160px;
+        top: 100px;
+        z-index: 3;
+    }
+    #eye2 img{
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+    }
+</style>
+<!-- 눈알 위치 특정 디스플레이 크기에서만 작동 여전. 이쯤서 포기...-->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css">
+<body>
+    <div class="mouse-move">
+        <div class="move-char">
+        </div>
+    </div>
+    <div id="eye1">
+        <img src="https://images.vexels.com/media/users/3/139158/isolated/lists/c862a3c9ef219140fb365301f9ebbd50-black-dot.png" alt="">
+    </div>
+    <div id="eye2">
+        <img src="https://images.vexels.com/media/users/3/139158/isolated/lists/c862a3c9ef219140fb365301f9ebbd50-black-dot.png" alt="">
+    </div>
+    <div id="InputForm">
+        <div class="content-box">
+            <h1>로그인</h1>
+            <br>
+            <p>이메일</p>
+            <input type="email" name="" id="">
+            <br>
+            <p>비밀번호</p>
+            <input type="password" name="" id="">
+            <br>
+            <input type="submit" value="확인">
+        </div>
+    </div>
+    <script>
+        const inputform = document.getElementById('InputForm');
+        const mouseOverEventHandler = (e) => {
+            let mouseX = (e.pageX + (window.innerWidth * 10)) / 70; // document의 x좌표값
+            let mouseY = (e.pageY + (window.innerHeight / 2)) / 5; // document의 y좌표값
+
+            let cursor1 = document.getElementById('eye1');
+            cursor1.style.left = mouseX + 'px';
+            cursor1.style.top = mouseY + 'px';
+            let cursor2 = document.getElementById('eye2');
+            cursor2.style.left = mouseX + 55 +'px';
+            cursor2.style.top = mouseY + 'px';
+        };
+        inputform.addEventListener('mouseover', (event) => {
+            document.addEventListener('mousemove', mouseOverEventHandler)
+        });
+        inputform.addEventListener('mouseout', (event) => {
+            document.removeEventListener('mousemove', mouseOverEventHandler);
+            let cursor1 = document.getElementById('eye1');
+            cursor1.style.left = 105 + 'px';
+            cursor1.style.top = 100 + 'px';
+            let cursor2 = document.getElementById('eye2');
+            cursor2.style.left = 160 + 'px';
+            cursor2.style.top = 100 + 'px';
+        });
+    </script>
+</body>
+</html>
