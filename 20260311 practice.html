@@ -64,15 +64,24 @@
             padding: 0% 10% 0% 10%;
         }
 
-        .imgbox{
+        .buttonbox{
             display: block;
             width: 18%;
-            margin: 1%;
             aspect-ratio: 1 / 1;
+            margin: 1%;
+        }
+
+        .imgbox{
+            display: block;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
             border: 1vw solid lch(89.23% 31.81 201.19);
             outline: 0.3vw solid black;
             border-radius: 3vw; 
             overflow: hidden;
+            transform: scale(1);
         }
         
         .imgbox:focus-visible {
@@ -83,6 +92,8 @@
             /*
             border-image: radial-gradient(closest-side at 20%, magenta, lch(89.23% 31.81 201.19));
             */
+            transform: scale(1.25);
+            transition: transform 1s ease;
         }
 
         .imgbox img{
@@ -94,6 +105,37 @@
             margin: 0 auto;
             object-fit : cover;
         }
+
+        .explanation{
+            position: absolute;
+            opacity: 0%;
+        }
+
+        .hoverexplanation{
+            display: block;
+            text-align: center;
+            align-content: center;
+            position: absolute;
+            z-index: 2;
+            width: 14vw;
+            height: 4vh;
+            border: 0.1vw solid black;
+            border-radius: 2vw;
+            background-color: white;
+            transition-property: opacity;
+            transition-duration: 0.5s;
+        }
+
+        /* @keyframes zoom{
+            0%{ 
+                width: 100%;
+                height: 100%;
+            }
+            100%{
+                width: 110%;
+                height: 100%;
+            }
+        } */
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -118,51 +160,96 @@
         </ul>
     </div>
     <div id="content">
-        <button class="imgbox">
-            <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliMmQwYWVhMDg4ODE5MWFjOGY2ZmNiYmM5YTJmZGQ6ZmlsZV8wMDAwMDAwMDYwODA3MWZkYTIzNmFmOWU2ZTUwMzk4YiIsInRzIjoiMjA1MjQiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjYzMGY1ODU2MzEyZDQzOTc2MjdkNGYwYThkOWFlYjk4OTQ4N2QzYzIyOWMwZDIwZjM3OGE3NjdhNzg3ZTlkN2UiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
-        </button>
-        <button class="imgbox">
-            <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliMmNiNGU1NzdjODE5MWJmYzVhYWZjMmVlMGYwMTE6ZmlsZV8wMDAwMDAwMGM4NjQ3MWY4YTgwMTk3NTM1NTk4ZmM1MyIsInRzIjoiMjA1MjQiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImJkMDYxOTM1YjM2YmFiNzM4MGI3ZDQzZTYxMjEwZTVkNDdlOWZhZGMzYmE2ODY5MjhkYmI1OWI5MmUxN2Q1MjAiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
-        </button>
-        <button class="imgbox">
-            <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliMmQxNTUxNjIwODE5MThlMGU2YThlMWYxM2YyYjA6ZmlsZV8wMDAwMDAwMGUwMjQ3MWY4YjUzZDhmMjY5ZGEzMjEyNyIsInRzIjoiMjA1MjQiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjE1ZGQ5NThhM2JlZGYxYTY5ZGUzYzVjNDJjNzYxOWRlMWJkNDZjYzljZGZiMDIxM2ExZjFjMTIzNTliM2QzM2MiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
-        </button>
-        <button class="imgbox">
-            <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
-        </button>
-        <button class="imgbox">
-            <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
-        </button>
-        <button class="imgbox">
-            <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
-        </button>
-        <button class="imgbox">
-            <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
-        </button>
-        <button class="imgbox">
-            <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
-        </button>
-        <button class="imgbox">
-            <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
-        </button>
-        <button class="imgbox" onclick="alert('버튼 잘눌림');">
-            <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
-        </button>
-        <button class="imgbox">
-            <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
-        </button>
-        <button class="imgbox">
-            <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
-        </button>
-        <button class="imgbox">
-            <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
-        </button>
-        <button class="imgbox">
-            <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
-        </button>
-        <button class="imgbox">
-            <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
-        </button>
+        <div class="buttonbox">
+            <button class="imgbox" onclick="alert('준비중입니다');">
+                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliMmQwYWVhMDg4ODE5MWFjOGY2ZmNiYmM5YTJmZGQ6ZmlsZV8wMDAwMDAwMDYwODA3MWZkYTIzNmFmOWU2ZTUwMzk4YiIsInRzIjoiMjA1MjQiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjYzMGY1ODU2MzEyZDQzOTc2MjdkNGYwYThkOWFlYjk4OTQ4N2QzYzIyOWMwZDIwZjM3OGE3NjdhNzg3ZTlkN2UiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+            </button>
+            <a class="explanation">Blog</a>
+        </div>
+        <div class="buttonbox" onclick="window.open('https://www.instagram.com/eng.std_100')">
+            <button class="imgbox">
+                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliMmNiNGU1NzdjODE5MWJmYzVhYWZjMmVlMGYwMTE6ZmlsZV8wMDAwMDAwMGM4NjQ3MWY4YTgwMTk3NTM1NTk4ZmM1MyIsInRzIjoiMjA1MjQiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImJkMDYxOTM1YjM2YmFiNzM4MGI3ZDQzZTYxMjEwZTVkNDdlOWZhZGMzYmE2ODY5MjhkYmI1OWI5MmUxN2Q1MjAiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+            </button>
+            <a class="explanation">Instagram</a>
+        </div>
+        <div class="buttonbox">
+            <button class="imgbox">
+                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliMmQxNTUxNjIwODE5MThlMGU2YThlMWYxM2YyYjA6ZmlsZV8wMDAwMDAwMGUwMjQ3MWY4YjUzZDhmMjY5ZGEzMjEyNyIsInRzIjoiMjA1MjQiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjE1ZGQ5NThhM2JlZGYxYTY5ZGUzYzVjNDJjNzYxOWRlMWJkNDZjYzljZGZiMDIxM2ExZjFjMTIzNTliM2QzM2MiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+            </button>
+            <a class="explanation">Github</a>
+        </div>
+        <div class="buttonbox">
+            <button class="imgbox">
+                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliNmIzYmM2Mzk0ODE5MWEwY2YyYWRhYzU5YjRlZTg6ZmlsZV8wMDAwMDAwMGE4ZTQ3MjA2YTBmZWFlOTlkZWU5OTgyMSIsInRzIjoiMjA1MjciLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjYzNjAwMjkxZDBiMzEwNzU4YWNkMGEwOGFjNmZiNmZlMGJhZmMzOGUyMmUwMTdlMDE3ZTk0Yjg5YjNiNmM1OTUiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+            </button>
+            <a class="explanation">Games</a>
+        </div>
+        <div class="buttonbox">
+            <button class="imgbox" onclick="window.open('https://mail.google.com/mail/?view=cm&to=qorrjsdn668@daum.net')">
+                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliNmMyZmI4ODcwODE5MTg1OTk2MzA0YjYxOTgzM2U6ZmlsZV8wMDAwMDAwMGRjYjA3MjA5YWMxODJjNjBiMDA1MWQxMCIsInRzIjoiMjA1MjciLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImM1NTc2ZDljMjM1Njg1ZmFjNGM2YzI2OTY1MTRmNDRiNmU2OTQ2NzE1MzMzZDMyODRlNzExYzA1NzdiNWI1MTQiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+            </button>
+            <a class="explanation">Mail</a>
+        </div>
+        <div class="buttonbox">
+            <button class="imgbox">
+                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliNmMzZDczY2I0ODE5MWI5ZTYyMjNhM2Y5ODgxYjc6ZmlsZV8wMDAwMDAwMDRiNGM3MjA2ODk0ZGE3YTk2NDRiNTdmMSIsInRzIjoiMjA1MjciLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImM5YWUxZTZmYWY3MmIyYjhhNjAzYjBiNzg1NzUyNjlhMjM0ZDg0YzRiNmM2NTM2NjI4OThhNTg5YmNlMzg4MTkiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+            </button>
+            <a class="explanation">Steam</a>
+        </div>
+        <div class="buttonbox">
+            <button class="imgbox">
+                <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
+            </button>
+            <a class="explanation">Blog</a>
+        </div>
+        <div class="buttonbox">
+            <button class="imgbox">
+                <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
+            </button>
+            <a class="explanation">Blog</a>
+        </div>
+        <div class="buttonbox">
+            <button class="imgbox">
+                <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
+            </button>
+            <a class="explanation">Blog</a>
+        </div>
+        <div class="buttonbox">
+            <button class="imgbox">
+                <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
+            </button>
+            <a class="explanation">Blog</a>
+        </div>
+        <div class="buttonbox">
+            <button class="imgbox">
+                <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
+            </button>
+            <a class="explanation">Blog</a>
+        </div>
+        <div class="buttonbox">
+            <button class="imgbox">
+                <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
+            </button>
+            <a class="explanation">Blog</a>
+        </div>
+        <div class="buttonbox">
+            <button class="imgbox">
+                <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
+            </button>
+            <a class="explanation">Blog</a>
+        </div>
+        <div class="buttonbox">
+            <button class="imgbox">
+                <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
+            </button>
+            <a class="explanation">Blog</a>
+        </div>
+        <div class="buttonbox">
+            <button class="imgbox">
+                <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
+            </button>
+            <a class="explanation">Blog</a>
+        </div>
     </div>
     <div id="footer">
     </div>
@@ -170,10 +257,11 @@
 <script>
     const container = document.getElementById('content');
     const buttons = Array.from(container.querySelectorAll('.imgbox'));
-
+    const explanations = Array.from(container.querySelectorAll('.explanation'));
+    
     window.addEventListener('keydown', (e) => {
         let currentIdx = buttons.indexOf(document.activeElement);
-        
+
         // 방향키가 아니면 무시
         const isArrow = ['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].includes(e.key);
         if (!isArrow) return;
@@ -184,6 +272,7 @@
         if (currentIdx === -1) {
             buttons[0].setAttribute('tabindex', '0');
             buttons[0].focus();
+            explanations[0].setAttribute('class', 'hoverexplanation');
             console.log('초기 포커스 설정 완료');
             return;
         }
@@ -206,7 +295,9 @@
         if (nextIdx !== undefined) {
             // tabindex 업데이트 (기존 포커스 제거, 새 포커스 설정)
             buttons[currentIdx].setAttribute('tabindex', '-1');
+            explanations[currentIdx].setAttribute('class', 'explanation');
             buttons[nextIdx].setAttribute('tabindex', '0');
+            explanations[nextIdx].setAttribute('class', 'hoverexplanation');
             buttons[nextIdx].focus();
         }
     });
