@@ -98,7 +98,7 @@
         .imgbox img{
             width: 100%;
             height: 100%;
-            border: 0.8vw solid turquoise;
+            border: 0.8vw solid rgb(100, 194, 184);
             border-radius: 2vw;
             box-sizing: border-box;
             margin: 0 auto;
@@ -136,6 +136,7 @@
 
         .headcontent{
             width: 50%;
+            text-align: center;
             flex-direction: column;
         }
 
@@ -144,10 +145,68 @@
             text-align: center;
         }
 
-        /*세로가 가로보다 더 길 경우*/
+        .headcontent #explan{
+            padding-top: 3vh;
+        }
+
+        .headcontent #headimg{
+            border: 0.1vw solid red !important;
+            border-radius: 4vw;
+            width: 70%;
+            aspect-ratio: 1 / 1;
+            position: relative;
+            animation: bounce 0.7s infinite linear;
+        }
+
+        #footer{
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            padding-top: 5vh;
+        }
+
+        #footer .footercontent{
+            display: block;
+            width: 50%;
+            height: 10vh;
+            align-content: center;
+            text-align: center;
+            border: 1px solid white;
+            border-radius: 5vw 5vw 0vw 0vw / 5vw 5vw 0vw 0vw;
+            background-color: white;
+            font-size: 3cqw;
+        }
+
+        /*세로가 가로보다 더 길 경우 vertical mode 활성화*/
         @media (max-aspect-ratio: 1/1.1) {
             body {
                 --vertical-mode: 1;
+            }
+        }
+        /*애니메이션*/
+        @keyframes bounce {
+            0% {
+                top: 2vh;
+                width: 70%;
+                aspect-ratio: 1 / 1;
+            }
+
+            50% {
+                top: 0;
+                width: 65%;
+                aspect-ratio: 1 / 1.05;
+            }
+
+            70% {
+                top: 4vh;
+                width: 60%;
+                aspect-ratio: 1 / 1.2;
+            }
+
+            100% {
+                top: 2vh;
+                width: 70%;
+                aspect-ratio: 1 / 1;
             }
         }
     </style>
@@ -157,14 +216,17 @@
     <div id="header">
         <div class="headcontent">
             <div id="main">
-                <B></B>
+                <B>블로그 UI의 혁신</B>
             </div>
             <div id="explan">
-
+                <p>3DS 메인 UI를 참고하여 실제 게임패드와 키보드를 이용해 동작할 수 있게 만들었다.
+                    전반적인 느낌은 8비트 느낌을 섞어 게임같은 느낌을 내도록 했으며, 좌 6개 항목은 실제 블로그 카테고리로 이용될 예정이다.
+                    그 옆 중간 6개 항목은 이력을 설명해 주는 이력 내용 및 포폴이고, 우측 3개 항목은 메일, SNS등 연락처이다
+                </p>
             </div>
         </div>
         <div class="headcontent">
-            <img id="headimg">
+            <img id="headimg" src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliOTU4NGM3MGJjODE5MWE0YWFmZTk4OGQ3YmM2ZTg6ZmlsZV8wMDAwMDAwMGIyYWM3MjA2YTNiYzU0MGYxODE1Y2IxMSIsInRzIjoiMjA1MjkiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImY1ZTEyNmU0ODdhOWY5YWJkNzJkZWE0ZTkyMzA4NjMwYzE2NTBmNGFmY2Q1ZWI0ZjUzM2M0YjMwNTgwMDZmNjgiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9">
         </div>
     </div>
     <div id="topmenu">
@@ -189,97 +251,102 @@
     <div id="content">
         <div class="buttonbox">
             <button class="imgbox" onclick="alert('준비중입니다');">
-                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliMmQwYWVhMDg4ODE5MWFjOGY2ZmNiYmM5YTJmZGQ6ZmlsZV8wMDAwMDAwMDYwODA3MWZkYTIzNmFmOWU2ZTUwMzk4YiIsInRzIjoiMjA1MjQiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjYzMGY1ODU2MzEyZDQzOTc2MjdkNGYwYThkOWFlYjk4OTQ4N2QzYzIyOWMwZDIwZjM3OGE3NjdhNzg3ZTlkN2UiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+                <img class="mainicon" src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliMmQwYWVhMDg4ODE5MWFjOGY2ZmNiYmM5YTJmZGQ6ZmlsZV8wMDAwMDAwMDYwODA3MWZkYTIzNmFmOWU2ZTUwMzk4YiIsInRzIjoiMjA1MjQiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjYzMGY1ODU2MzEyZDQzOTc2MjdkNGYwYThkOWFlYjk4OTQ4N2QzYzIyOWMwZDIwZjM3OGE3NjdhNzg3ZTlkN2UiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
             </button>
             <a class="explanation">Diary</a>
         </div>
         <div class="buttonbox" onclick="window.open('https://www.instagram.com/eng.std_100')">
             <button class="imgbox">
-                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliMmNiNGU1NzdjODE5MWJmYzVhYWZjMmVlMGYwMTE6ZmlsZV8wMDAwMDAwMGM4NjQ3MWY4YTgwMTk3NTM1NTk4ZmM1MyIsInRzIjoiMjA1MjQiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImJkMDYxOTM1YjM2YmFiNzM4MGI3ZDQzZTYxMjEwZTVkNDdlOWZhZGMzYmE2ODY5MjhkYmI1OWI5MmUxN2Q1MjAiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+                <img class="mainicon" src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliOTU5MjljMWZjODE5MWJhMWVkOTQ1OWM1NDA2NjY6ZmlsZV8wMDAwMDAwMGRlZDg3MjA2OTUyMWVhZjY0MjdiMzA4NyIsInRzIjoiMjA1MjkiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjYwODgzOTBmOTliNGU0YjkwN2Y2MTE4M2NlZjQwZWEwZmMzZGY1ZTRiZGIxOGExOTFlMmFlZDk5ZDk3YjA1OTciLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
             </button>
-            <a class="explanation">Instagram</a>
+            <a class="explanation">Trip&Travel</a>
         </div>
         <div class="buttonbox">
             <button class="imgbox">
-                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliMmQxNTUxNjIwODE5MThlMGU2YThlMWYxM2YyYjA6ZmlsZV8wMDAwMDAwMGUwMjQ3MWY4YjUzZDhmMjY5ZGEzMjEyNyIsInRzIjoiMjA1MjQiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjE1ZGQ5NThhM2JlZGYxYTY5ZGUzYzVjNDJjNzYxOWRlMWJkNDZjYzljZGZiMDIxM2ExZjFjMTIzNTliM2QzM2MiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+                <img class="mainicon" src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliMmQxNTUxNjIwODE5MThlMGU2YThlMWYxM2YyYjA6ZmlsZV8wMDAwMDAwMGUwMjQ3MWY4YjUzZDhmMjY5ZGEzMjEyNyIsInRzIjoiMjA1MjQiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjE1ZGQ5NThhM2JlZGYxYTY5ZGUzYzVjNDJjNzYxOWRlMWJkNDZjYzljZGZiMDIxM2ExZjFjMTIzNTliM2QzM2MiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
             </button>
             <a class="explanation">Github</a>
         </div>
         <div class="buttonbox">
             <button class="imgbox">
-                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliNmIzYmM2Mzk0ODE5MWEwY2YyYWRhYzU5YjRlZTg6ZmlsZV8wMDAwMDAwMGE4ZTQ3MjA2YTBmZWFlOTlkZWU5OTgyMSIsInRzIjoiMjA1MjciLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjYzNjAwMjkxZDBiMzEwNzU4YWNkMGEwOGFjNmZiNmZlMGJhZmMzOGUyMmUwMTdlMDE3ZTk0Yjg5YjNiNmM1OTUiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+                <img class="mainicon" src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliNmIzYmM2Mzk0ODE5MWEwY2YyYWRhYzU5YjRlZTg6ZmlsZV8wMDAwMDAwMGE4ZTQ3MjA2YTBmZWFlOTlkZWU5OTgyMSIsInRzIjoiMjA1MjciLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjYzNjAwMjkxZDBiMzEwNzU4YWNkMGEwOGFjNmZiNmZlMGJhZmMzOGUyMmUwMTdlMDE3ZTk0Yjg5YjNiNmM1OTUiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
             </button>
             <a class="explanation">Games</a>
         </div>
         <div class="buttonbox">
             <button class="imgbox" onclick="window.open('https://mail.google.com/mail/?view=cm&to=qorrjsdn668@daum.net')">
-                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliNmMyZmI4ODcwODE5MTg1OTk2MzA0YjYxOTgzM2U6ZmlsZV8wMDAwMDAwMGRjYjA3MjA5YWMxODJjNjBiMDA1MWQxMCIsInRzIjoiMjA1MjciLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImM1NTc2ZDljMjM1Njg1ZmFjNGM2YzI2OTY1MTRmNDRiNmU2OTQ2NzE1MzMzZDMyODRlNzExYzA1NzdiNWI1MTQiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+                <img class="mainicon" src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliNmMyZmI4ODcwODE5MTg1OTk2MzA0YjYxOTgzM2U6ZmlsZV8wMDAwMDAwMGRjYjA3MjA5YWMxODJjNjBiMDA1MWQxMCIsInRzIjoiMjA1MjciLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImM1NTc2ZDljMjM1Njg1ZmFjNGM2YzI2OTY1MTRmNDRiNmU2OTQ2NzE1MzMzZDMyODRlNzExYzA1NzdiNWI1MTQiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
             </button>
             <a class="explanation">Mail</a>
         </div>
         <div class="buttonbox">
             <button class="imgbox">
-                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliODA2OTRlYWQ4ODE5MWI2MWJkZjIyYTUxY2FiMjQ6ZmlsZV8wMDAwMDAwMGE1MTg3MjA2OGMzZGRhZGNhYTdhZTI2MiIsInRzIjoiMjA1MjgiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImQ3MDExZjg4ZGJjYThjYTZlMWNmZjYyZGY4MjQxMGMxYzEzYzg4NjcyOGFlNzE2MmRmOGM3NjQ0MmNkZTE1MTciLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+                <img class="mainicon" src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliODA2OTRlYWQ4ODE5MWI2MWJkZjIyYTUxY2FiMjQ6ZmlsZV8wMDAwMDAwMGE1MTg3MjA2OGMzZGRhZGNhYTdhZTI2MiIsInRzIjoiMjA1MjgiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImQ3MDExZjg4ZGJjYThjYTZlMWNmZjYyZGY4MjQxMGMxYzEzYzg4NjcyOGFlNzE2MmRmOGM3NjQ0MmNkZTE1MTciLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
             </button>
             <a class="explanation">GameReview</a>
         </div>
         <div class="buttonbox">
             <button class="imgbox">
-                <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
+                <img class="mainicon" src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliOTU3YjViMWFjODE5MWFhMWQyOGYwNTYyOTAwYjI6ZmlsZV8wMDAwMDAwMDhlYjQ3MjA2OGM1MTk0YWY2ZWI2ZDg1OCIsInRzIjoiMjA1MjkiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImJkZjE2ZGEwMjViNzY4YjZhMTM2ZDI1MDYwMTFiZmY1MGIzZGIyZTQyZDdlY2QyZmMxNDQyNWY3ZWYwNmQ3ODYiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
             </button>
-            <a class="explanation">Blog</a>
+            <a class="explanation">Brewing</a>
         </div>
         <div class="buttonbox">
             <button class="imgbox">
-                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliNmMzZDczY2I0ODE5MWI5ZTYyMjNhM2Y5ODgxYjc6ZmlsZV8wMDAwMDAwMDRiNGM3MjA2ODk0ZGE3YTk2NDRiNTdmMSIsInRzIjoiMjA1MjciLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImM5YWUxZTZmYWY3MmIyYjhhNjAzYjBiNzg1NzUyNjlhMjM0ZDg0YzRiNmM2NTM2NjI4OThhNTg5YmNlMzg4MTkiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+                <img class="mainicon" src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliNmMzZDczY2I0ODE5MWI5ZTYyMjNhM2Y5ODgxYjc6ZmlsZV8wMDAwMDAwMDRiNGM3MjA2ODk0ZGE3YTk2NDRiNTdmMSIsInRzIjoiMjA1MjciLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImM5YWUxZTZmYWY3MmIyYjhhNjAzYjBiNzg1NzUyNjlhMjM0ZDg0YzRiNmM2NTM2NjI4OThhNTg5YmNlMzg4MTkiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
             </button>
             <a class="explanation">Steam</a>
         </div>
         <div class="buttonbox">
             <button class="imgbox">
-                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliODBiYmI4MTc4ODE5MTlmNzFmNzUxYzFlZDIwNjg6ZmlsZV8wMDAwMDAwMGE1YmM3MjJmOTgzZmJkNDFhY2ZkOGNmYSIsInRzIjoiMjA1MjgiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImYwMzI2NDEwYTIxNjdjOTAxMTgwMDQwZDZhNWMyY2VmZjk4NWUwNTZiZWU4NDk0ZGQ4YjVlMzFlNDYzYzljZjkiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+                <img class="mainicon" src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliODBiYmI4MTc4ODE5MTlmNzFmNzUxYzFlZDIwNjg6ZmlsZV8wMDAwMDAwMGE1YmM3MjJmOTgzZmJkNDFhY2ZkOGNmYSIsInRzIjoiMjA1MjgiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImYwMzI2NDEwYTIxNjdjOTAxMTgwMDQwZDZhNWMyY2VmZjk4NWUwNTZiZWU4NDk0ZGQ4YjVlMzFlNDYzYzljZjkiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
             </button>
             <a class="explanation">Webs</a>
         </div>
         <div class="buttonbox">
             <button class="imgbox">
-                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliMmNiNGU1NzdjODE5MWJmYzVhYWZjMmVlMGYwMTE6ZmlsZV8wMDAwMDAwMGM4NjQ3MWY4YTgwMTk3NTM1NTk4ZmM1MyIsInRzIjoiMjA1MjQiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImJkMDYxOTM1YjM2YmFiNzM4MGI3ZDQzZTYxMjEwZTVkNDdlOWZhZGMzYmE2ODY5MjhkYmI1OWI5MmUxN2Q1MjAiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+                <img class="mainicon" src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliMmNiNGU1NzdjODE5MWJmYzVhYWZjMmVlMGYwMTE6ZmlsZV8wMDAwMDAwMGM4NjQ3MWY4YTgwMTk3NTM1NTk4ZmM1MyIsInRzIjoiMjA1MjQiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImJkMDYxOTM1YjM2YmFiNzM4MGI3ZDQzZTYxMjEwZTVkNDdlOWZhZGMzYmE2ODY5MjhkYmI1OWI5MmUxN2Q1MjAiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
             </button>
             <a class="explanation">Instagram</a>
         </div>
         <div class="buttonbox">
             <button class="imgbox">
-                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliODA1NzVkNzIwODE5MTgzMGQ1NGNhYTRhNTU0N2E6ZmlsZV8wMDAwMDAwMDVlMTg3MjA2YjQ5ZTEzYzA2ZTkxMjlmNSIsInRzIjoiMjA1MjgiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjdjYzJhMjJjMDA0MjYyNzE3Nzg4ZjllZGExZGU5YjdiZjk3YzZkYjdlZWIxMzVkMDk3NTUyMTg4ODk3ZjkzZDQiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+                <img class="mainicon" src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliODA1NzVkNzIwODE5MTgzMGQ1NGNhYTRhNTU0N2E6ZmlsZV8wMDAwMDAwMDVlMTg3MjA2YjQ5ZTEzYzA2ZTkxMjlmNSIsInRzIjoiMjA1MjgiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjdjYzJhMjJjMDA0MjYyNzE3Nzg4ZjllZGExZGU5YjdiZjk3YzZkYjdlZWIxMzVkMDk3NTUyMTg4ODk3ZjkzZDQiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
             </button>
             <a class="explanation">DIY</a>
         </div>
         <div class="buttonbox">
             <button class="imgbox">
-                <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
+                <img class="mainicon" src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliOTViNDFkODQ0ODE5MTlmMjMxZjk5NThiYTgzYjQ6ZmlsZV8wMDAwMDAwMDllZGM3MjA2YTI5ZTJiNTI2ZWI0NzMzMCIsInRzIjoiMjA1MjkiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjQ0N2UzZGIxMjdkMjY5M2ZjYjRmNzNiNzMzZjIxYmQ5MDgwOGVmOWQxZWU4YmQ5M2IwZDhlYTQ4ODY3NWY2NjAiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
             </button>
-            <a class="explanation">Blog</a>
+            <a class="explanation">Mutuals</a>
         </div>
         <div class="buttonbox">
             <button class="imgbox">
-                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliODBhMGIyOTc4ODE5MWI3MTAyOWE0MDJlODkyNTg6ZmlsZV8wMDAwMDAwMDFkMzQ3MjA2OGE1YzA5ZTZlYjEwZDI4NiIsInRzIjoiMjA1MjgiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjQzMzJiMGNmMDY5ODY4ZjBhZWY4YjU5YTY1MTM3NmI0YzQxOGFhZGQ4MjhmYjMyOGZjZjlmMDg4M2NmZjZjYWYiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+                <img class="mainicon" src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliODBhMGIyOTc4ODE5MWI3MTAyOWE0MDJlODkyNTg6ZmlsZV8wMDAwMDAwMDFkMzQ3MjA2OGE1YzA5ZTZlYjEwZDI4NiIsInRzIjoiMjA1MjgiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjQzMzJiMGNmMDY5ODY4ZjBhZWY4YjU5YTY1MTM3NmI0YzQxOGFhZGQ4MjhmYjMyOGZjZjlmMDg4M2NmZjZjYWYiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
             </button>
             <a class="explanation">CV</a>
         </div>
         <div class="buttonbox">
             <button class="imgbox">
-                <img src="https://vrthumb.clipartkorea.co.kr/2021/03/11/tica1140002886.jpg" alt="">
+                <img class="mainicon" src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliOTVhOGFiMjg0ODE5MThhYWE2NTRjZTYyZDYyYWY6ZmlsZV8wMDAwMDAwMGY0OTA3MjA2OWMwNzJiZmUwNzdiMjgxYSIsInRzIjoiMjA1MjkiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6IjUzZmVjZmFlMDZiYTg3NWNmZTVjNWIyNTc1NDc4M2Q4MjRkODQ4MjU0ZDhjNjg4MzUzMmU0MTEzZGM2MzA4YzgiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
             </button>
-            <a class="explanation">Blog</a>
+            <a class="explanation">etc.dev.</a>
         </div>
         <div class="buttonbox">
             <button class="imgbox">
-                <img src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliODBhYjY3ZGE0ODE5MTgyYWViNzNmMmE1ODM5N2E6ZmlsZV8wMDAwMDAwMDRmN2M3MjA2OTk1ZmFhMGEwY2I2NzMyYSIsInRzIjoiMjA1MjgiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImI0NzJmNDQyOTdkNDYyZjgzOTRiNGE1NDAyNTcyMzMxNThhMDI3MzcwMTc5YTI0NDg3NDlmYjFkZjBhOGM0MGMiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
+                <img class="mainicon" src="https://chatgpt.com/backend-api/estuary/public_content/enc/eyJpZCI6Im1fNjliODBhYjY3ZGE0ODE5MTgyYWViNzNmMmE1ODM5N2E6ZmlsZV8wMDAwMDAwMDRmN2M3MjA2OTk1ZmFhMGEwY2I2NzMyYSIsInRzIjoiMjA1MjgiLCJwIjoicHlpIiwiY2lkIjoiMSIsInNpZyI6ImI0NzJmNDQyOTdkNDYyZjgzOTRiNGE1NDAyNTcyMzMxNThhMDI3MzcwMTc5YTI0NDg3NDlmYjFkZjBhOGM0MGMiLCJ2IjoiMCIsImdpem1vX2lkIjpudWxsLCJjcyI6bnVsbCwiY2RuIjpudWxsLCJjcCI6bnVsbCwibWEiOm51bGx9" alt="">
             </button>
             <a class="explanation">Discord</a>
         </div>
     </div>
     <div id="footer">
-
+        <a class="footercontent">
+            173번째 스타님(비로그인 상태)
+        </a>
+        <a class="footercontent">
+            로그인
+        </a>
     </div>
 </body>
 <script>
@@ -317,8 +384,7 @@
             explanations[j].setAttribute('class', 'hoverexplanation');
             //상단 박스의 텍스트 & 이미지 바꾸기
             document.querySelector("#main B").textContent = explanations[j].textContent;
-            //여기부터 다음에
-            /* document.getElementById("headimg").src = buttons[j].querySelector("img").src; */
+            document.getElementById("headimg").src = buttons[j].querySelector(".mainicon").src;
         });
 
         buttons[j].addEventListener("mouseleave", (b) => {
@@ -340,7 +406,8 @@
             buttons[0].setAttribute('tabindex', '0');
             buttons[0].focus();
             explanations[0].setAttribute('class', 'hoverexplanation');
-            console.log('초기 포커스 설정 완료');
+            document.querySelector("#main B").textContent = explanations[0].textContent;
+            document.getElementById("headimg").src = buttons[0].querySelector(".mainicon").src;
             return;
         }
         
@@ -366,8 +433,9 @@
             buttons[nextIdx].setAttribute('tabindex', '0');
             explanations[nextIdx].setAttribute('class', 'hoverexplanation');
             buttons[nextIdx].focus();
-            //상단 박스의 텍스트 바꾸기
+            //상단 박스의 텍스트&이미지 바꾸기
             document.querySelector("#main B").textContent = explanations[nextIdx].textContent;
+            document.getElementById("headimg").src = buttons[nextIdx].querySelector(".mainicon").src;
         }
     });
 
